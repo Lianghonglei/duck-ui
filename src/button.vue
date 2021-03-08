@@ -1,11 +1,9 @@
 <template>
-
+  <button class="g-button">按钮</button>
 </template>
 <script>
 export default {
-  template: `
-  <button class="g-button">按钮</button>
-  `
+
 }
 
 </script>
