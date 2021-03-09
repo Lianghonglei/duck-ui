@@ -10,7 +10,18 @@
 </template>
 <script>
 export default {
-  props: ['icon', 'iconPosition']
+  // props: ['icon', 'iconPosition']
+  props:{
+    icon:{},
+    iconPosition:{
+      type: String,
+      default: 'left',
+      validator(value){ //属性检查器，检查这个属性传入是否符合预期
+        return value === 'left' || value === 'right'
+      }
+    }
+  },
+
 }
 
 </script>

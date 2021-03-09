@@ -12445,7 +12445,18 @@ exports.default = void 0;
 //
 //
 var _default = {
-  props: ['icon', 'iconPosition']
+  // props: ['icon', 'iconPosition']
+  props: {
+    icon: {},
+    iconPosition: {
+      type: String,
+      default: 'left',
+      validator: function validator(value) {
+        //属性检查器，检查这个属性传入是否符合预期
+        return value === 'left' || value === 'right';
+      }
+    }
+  }
 };
 exports.default = _default;
         var $b2c6e8 = exports.default || module.exports;
