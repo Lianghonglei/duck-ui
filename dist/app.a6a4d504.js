@@ -12477,10 +12477,10 @@ exports.default = _default;
     },
     [
       _vm.icon
-        ? _c("g-icon", { staticClass: "icon", attrs: { name: _vm.icon } }, [
-            _c("div", { staticClass: "content" }, [_vm._t("default")], 2)
-          ])
-        : _vm._e()
+        ? _c("g-icon", { staticClass: "icon", attrs: { name: _vm.icon } })
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "content" }, [_vm._t("default")], 2)
     ],
     1
   )
@@ -12548,7 +12548,7 @@ exports.default = _default;
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("svg", { staticClass: "g-icon" }, [
-    _c("use", { attrs: { "x-link:href": "#i-" + _vm.name } })
+    _c("use", { attrs: { "xlink:href": "#i-" + _vm.name } })
   ])
 }
 var staticRenderFns = []
@@ -12630,7 +12630,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56657" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62323" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
