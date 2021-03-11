@@ -33,9 +33,9 @@
 <body>
   <div id="app">
 
-    <g-button icon="settings">设置</g-button>
-    <g-button>设置</g-button>
-    <g-button icon="settings" icon-position="right">设置</g-button>
+    <g-button :loading="loading1" icon="settings" @click="loading1 = !loading1">设置</g-button>
+    <g-button :loading="loading2" @click="loading2 = !loading2">设置</g-button>
+    <g-button :loading="loading3" icon="settings" icon-position="right" @click="loading3 = !loading3">设置</g-button>
   </div>
 
   <!-- 整个应用的入口 -->
