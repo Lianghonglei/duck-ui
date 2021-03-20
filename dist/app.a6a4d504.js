@@ -12112,7 +12112,7 @@ function getBundleURL() {
 }
 
 function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
 }
 
 exports.getBundleURL = getBundleURLCached;
@@ -14062,6 +14062,9 @@ function formatPrimitive(ctx, value) {
 
     case 'symbol':
       return ctx.stylize(value.toString(), 'symbol');
+
+    case 'bigint':
+      return ctx.stylize(value.toString() + 'n', 'bigint');
   } // For some reason typeof null is "object", so special case here.
 
 
@@ -24041,7 +24044,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52199" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49572" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -24072,8 +24075,9 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
         assetsToAccept.forEach(function (v) {
           hmrAcceptRun(v[0], v[1]);
         });
-      } else {
-        window.location.reload();
+      } else if (location.reload) {
+        // `location` global exists in a web worker context but lacks `.reload()` function.
+        location.reload();
       }
     }
 
