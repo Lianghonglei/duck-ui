@@ -1,4 +1,5 @@
 // 新建 karma.conf.js，内容如下
+//可以帮我打开浏览器的测试运行器
 module.exports = function (config) {
   config.set({
 

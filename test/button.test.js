@@ -6,6 +6,7 @@ Vue.config.productionTip = false
 Vue.config.devtools = false
 
 describe('Button', () => {
+  //BDD 行为驱动测试
   it('存在.', () => {
     expect(Button).to.be.ok
   })
