@@ -25,21 +25,33 @@
     }
   </style>
   <style>
-   
+
   </style>
 </head>
 
 <body>
   <div id="app">
+    <div class="box" style="margin:20px">
+      <g-input value="红蕾" disabled></g-input>
+      <g-input value="tom" readonly></g-input>
+      <g-input value="leo"></g-input>
+    </div>
+    <div class="box" style="margin:20px">
+      <g-input value="老" error="姓名不能少于两个字"></g-input>
+    </div>
 
-    <g-button :loading="loading1" icon="settings" @click="loading1 = !loading1">设置</g-button>
-    <g-button :loading="loading2" @click="loading2 = !loading2">设置</g-button>
-    <g-button :loading="loading3" icon="settings" icon-position="right" @click="loading3 = !loading3">设置</g-button>
-    <g-button-group>
-      <g-button icon="left">上一页</g-button>
-      <g-button>更多</g-button>
-      <g-button icon="right" icon-position="right">下一页</g-button>
-    </g-button-group>
+
+    <div style="margin:20px">
+      <g-button :loading="loading1" icon="settings" @click="loading1 = !loading1">设置</g-button>
+      <g-button :loading="loading2" @click="loading2 = !loading2">设置</g-button>
+      <g-button :loading="loading3" icon="settings" icon-position="right" @click="loading3 = !loading3">设置</g-button>
+      <g-button-group>
+        <g-button icon="left">上一页</g-button>
+        <g-button>更多</g-button>
+        <g-button icon="right" icon-position="right">下一页</g-button>
+      </g-button-group>
+    </div>
+
 
     <div id="test"></div>
   </div>
@@ -47,7 +59,7 @@
   <!-- 整个应用的入口 -->
   <script src="./src/app.js"></script>
   <!-- 引入我的SVG图标 -->
-  <script src="//at.alicdn.com/t/font_2410042_of7mq3t0aks.js"></script>
+  <script src="//at.alicdn.com/t/font_2410042_zmyjlmp7bjh.js"></script>
 </body>
 
 </html>
