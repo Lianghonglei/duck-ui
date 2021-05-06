@@ -5,15 +5,21 @@
 </template>
 
 <script>
-export default{
-  name:'GIcon',
-  props:['name']
-}
 
+export default {
+  name: 'GIcon',
+  props: ['name'],
+  data() {
+    return {
+
+    }
+  }
+}
 </script>
 
+
 <style lang="scss">
-.g-icon{
+.g-icon {
   width: 1em;
   height: 1em;
 }

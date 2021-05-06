@@ -29,7 +29,7 @@ describe('Input', () => {
       }
     }).$mount()
     const inputElement = vm.$el.querySelector('input')
-    expect(inputElement.disabled).to.equal(1234)
+    expect(inputElement.disabled).to.equal(true)
     vm.$destroy()
   })
 })
