@@ -18,6 +18,12 @@ new Vue({
       loading2: true,
       loading3: true
     }
+  },
+  methods:{
+    inputChange(e, content){
+      console.log('object e:')
+      console.log(e.target.value);
+    }
   }
 })
 
