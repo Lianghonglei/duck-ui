@@ -12835,8 +12835,16 @@ exports.default = void 0;
 //
 var _default = {
   props: {
-    gutter: [Number, String],
-    default: 0
+    gutter: {
+      type: [Number, String],
+      default: 0
+    },
+    align: {
+      type: String,
+      validator: function validator(value) {
+        return ['left', 'right', 'center'].includes(value);
+      }
+    }
   },
   computed: {
     rowStyle: function rowStyle() {
@@ -12844,6 +12852,11 @@ var _default = {
         marginLeft: -this.gutter / 2 + 'px',
         marginRight: -this.gutter / 2 + 'px'
       };
+    },
+    rowClass: function rowClass() {
+      var align = this.align;
+      console.log(align);
+      return [align && "align-".concat(align)];
     }
   },
   mounted: function mounted() {
@@ -12869,7 +12882,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "row", style: _vm.rowStyle },
+    { staticClass: "row", class: _vm.rowClass, style: _vm.rowStyle },
     [_vm._t("default")],
     2
   )
@@ -13079,7 +13092,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64855" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61596" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
