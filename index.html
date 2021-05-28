@@ -26,7 +26,7 @@
   </style>
   <style>
     .demoBox{
-      height: 50px;
+      min-height: 50px;
       background-color: grey;
       border: 1px solid red;
     }
@@ -38,7 +38,7 @@
     <div class="wrapper" style="border:1px solid green">
       <g-row class="topbar">
         <g-col class="demoBox" :span="9">
-          <g-row :align="left">
+          <g-row align="left">
             <g-col>1</g-col>
             <g-col>2</g-col>
             <g-col>3</g-col>
@@ -46,7 +46,7 @@
           </g-row>
         </g-col>
         <g-col class="demoBox" :span="15">
-          <g-row :align="right">
+          <g-row align="right">
             <g-col>1</g-col>
             <g-col>2</g-col>
             <g-col>3</g-col>
@@ -58,7 +58,15 @@
         </g-col>
       </g-row>
       <g-row class="logo-and-search-and-qrcode">
-        <g-col class="demoBox" span="4"></g-col>
+        <g-col class="demoBox" span="4">
+          <g-row align="center">
+            <g-col>
+              <div class="logo-wrapper">
+                <!-- <img width="100%" height="100%" src="https://img.alicdn.com/tfs/TB1R5fsgyDsXe8jSZR0XXXK6FXa-281-80.jpg" class="logo"> -->
+              </div>
+            </g-col>
+          </g-row>
+        </g-col>
         <g-col class="demoBox" span="14"></g-col>
         <g-col class="demoBox" span="6"></g-col>
       </g-row>
@@ -74,7 +82,9 @@
       <g-input value="老" error="姓名不能少于两个字"></g-input>
     </div>
     <div class="box" style="margin:20px">
-      <g-input value="change事件" @change="inputChange"></g-input>
+      <g-input value="change事件" v-model="message"></g-input>
+      <p>{{message}}</p>
+      <button @click="message += 1">+1</button>
     </div>
 
     <div style="margin:20px">

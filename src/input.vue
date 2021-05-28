@@ -1,8 +1,10 @@
 <template>
   <div class="wrapper" :class="{'error': error}">
     <input :value="value" type="text" :disabled="disabled" :readonly="readonly " 
-    @change="$emit('change', $event, 'hi')"
-    @focus="$emit('focus')"
+    @change="$emit('change', $event.target.value)"
+    @focus="$emit('focus',$event.target.value)"
+    @input="$emit('input', $event.target.value)"
+    @blur="$emit('blur', $event.target.value)"
     >
     <template v-if="error">
       <icon name="error" class="icon-error"></icon>
@@ -48,7 +50,7 @@ $red: #f1453d;
   font-size: $font-size;
   display: inline-flex;
   align-items: center;
-  > :not(:lat-child){
+  > :not(:last-child){
     margin-right: .5em;
   }
   > input {

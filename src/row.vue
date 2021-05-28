@@ -6,33 +6,45 @@
 
 <script>
 export default {
-  props:{
-    gutter:{
+  props: {
+    gutter: {
       type: [Number, String],
       default: 0
     },
-    align:{
+    align: {
       type: String,
-      validator (value) {
+      validator(value) {
         return ['left', 'right', 'center'].includes(value)
       }
     },
-    
+    phone: {
+      type: Object,
+      validator(value) {
+        let keys = Object.keys(value)
+        let valid = true
+        keys.forEach(key => {
+          if (!['span', 'offset'].includes(key)) {
+            valid = false
+          }
+        })
+        return valid
+      }
+    }
+
   },
-  computed:{
+  computed: {
     rowStyle() {
       return {
-        marginLeft: -this.gutter/2 + 'px',
-        marginRight: -this.gutter/2 + 'px'
+        marginLeft: -this.gutter / 2 + 'px',
+        marginRight: -this.gutter / 2 + 'px'
       }
     },
     rowClass() {
-      let {align} = this
-      console.log(align)
+      let { align } = this
       return [align && `align-${align}`]
     }
   },
-  mounted(){
+  mounted() {
     this.$children.forEach((vm) => {
       vm.gutter = this.gutter
     })
@@ -41,17 +53,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.row{
+.row {
   display: flex;
-  &.align-left{
+  &.align-left {
     justify-content: flex-start;
   }
-  &.align-right{
+  &.align-right {
     justify-content: flex-end;
   }
-  &.align-end{
+  &.align-end {
     justify-content: center;
   }
 }
-
 </style>

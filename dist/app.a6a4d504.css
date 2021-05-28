@@ -79,7 +79,7 @@
   display: inline-flex;
   align-items: center;
 }
-.wrapper[data-v-59931f] > :not(:lat-child) {
+.wrapper[data-v-59931f] > :not(:last-child) {
   margin-right: 0.5em;
 }
 .wrapper > input[data-v-59931f] {

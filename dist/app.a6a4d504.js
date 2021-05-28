@@ -12721,6 +12721,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
 var _default = {
   name: 'GInput',
   //大部分时候这个name是没有作用的
@@ -12766,10 +12768,16 @@ exports.default = _default;
         domProps: { value: _vm.value },
         on: {
           change: function($event) {
-            return _vm.$emit("change", $event, "hi")
+            return _vm.$emit("change", $event.target.value)
           },
           focus: function($event) {
-            return _vm.$emit("focus")
+            return _vm.$emit("focus", $event.target.value)
+          },
+          input: function($event) {
+            return _vm.$emit("input", $event.target.value)
+          },
+          blur: function($event) {
+            return _vm.$emit("blur", $event.target.value)
           }
         }
       }),
@@ -12844,6 +12852,19 @@ var _default = {
       validator: function validator(value) {
         return ['left', 'right', 'center'].includes(value);
       }
+    },
+    phone: {
+      type: Object,
+      validator: function validator(value) {
+        var keys = Object.keys(value);
+        var valid = true;
+        keys.forEach(function (key) {
+          if (!['span', 'offset'].includes(key)) {
+            valid = false;
+          }
+        });
+        return valid;
+      }
     }
   },
   computed: {
@@ -12855,7 +12876,6 @@ var _default = {
     },
     rowClass: function rowClass() {
       var align = this.align;
-      console.log(align);
       return [align && "align-".concat(align)];
     }
   },
@@ -13054,7 +13074,8 @@ new _vue.default({
     return {
       loading1: true,
       loading2: true,
-      loading3: true
+      loading3: true,
+      message: 'hi'
     };
   },
   methods: {
@@ -13092,7 +13113,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61596" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59827" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
