@@ -25,7 +25,7 @@
     }
   </style>
   <style>
-    .demoBox{
+    .demoBox {
       min-height: 50px;
       background-color: grey;
       border: 1px solid red;
@@ -35,43 +35,17 @@
 
 <body>
   <div id="app">
-    <div class="wrapper" style="border:1px solid green">
-      <g-row class="topbar">
-        <g-col class="demoBox" :span="9">
-          <g-row align="left">
-            <g-col>1</g-col>
-            <g-col>2</g-col>
-            <g-col>3</g-col>
-            <g-col>4</g-col>
-          </g-row>
+    <div style="border: 1px solid black">
+      <g-row gutter="20">
+        <g-col class="demoBox" span="2" :phone="{span:24}" :ipad="{span:8}" :narrow="{span:4}" :pc="{span:2}"
+          :wide-pc="{span:1}">1
         </g-col>
-        <g-col class="demoBox" :span="15">
-          <g-row align="right">
-            <g-col>1</g-col>
-            <g-col>2</g-col>
-            <g-col>3</g-col>
-            <g-col>4</g-col>
-            <g-col>5</g-col>
-            <g-col>6</g-col>
-            <g-col>7</g-col>
-          </g-row>
-        </g-col>
-      </g-row>
-      <g-row class="logo-and-search-and-qrcode">
-        <g-col class="demoBox" span="4">
-          <g-row align="center">
-            <g-col>
-              <div class="logo-wrapper">
-                <!-- <img width="100%" height="100%" src="https://img.alicdn.com/tfs/TB1R5fsgyDsXe8jSZR0XXXK6FXa-281-80.jpg" class="logo"> -->
-              </div>
-            </g-col>
-          </g-row>
-        </g-col>
-        <g-col class="demoBox" span="14"></g-col>
-        <g-col class="demoBox" span="6"></g-col>
+        <g-col class="demoBox" span="22" :phone="{span:24}" :ipad="{span:16}" :narrow="{span:20}" :pc="{span:22}"
+          :wide-pc="{span:23}">
+          11</g-col>
       </g-row>
     </div>
-  
+
 
     <div class="box" style="margin:20px">
       <g-input value="红蕾" disabled></g-input>
