@@ -112,6 +112,7 @@
 }
 .row[data-v-2b4e94] {
   display: flex;
+  flex-wrap: wrap;
 }
 .row.align-left[data-v-2b4e94] {
   justify-content: flex-start;
