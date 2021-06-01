@@ -25,7 +25,7 @@ export default {
     phone: { type: Object, validator },
     ipad: { type: Object, validator },
     narrowPc: { type: Object, validator },
-    pc: { type: Object, validator },
+    // pc: { type: Object, validator },
     widePc: { type: Object, validator }
   },
   data() {
@@ -42,7 +42,7 @@ export default {
         ...(phone ? [`col-phone-${phone.span}`] : []),
         ...(ipad ? [`col-ipad-${ipad.span}`] : []),
         ...(narrowPc ? [`col-narrowPc-${narrowPc.span}`] : []),
-        ...(pc ? [`col-pc-${pc.span}`] : []),
+        // ...(pc ? [`col-pc-${pc.span}`] : []),
         ...(widePc ? [`col-widePc-${widePc.span}`] : []),
       ]
     },
@@ -113,20 +113,20 @@ export default {
       }
     }
   }
-  @media (min-width: 993px) and (max-width: 1200px) {
-    $class-prefix: col-pc-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        width: ($n / 24) * 100%;
-      }
-    }
-    $class-prefix: offset-pc-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        margin-left: ($n / 24) * 100%;
-      }
-    }
-  }
+  // @media (min-width: 993px) and (max-width: 1200px) {
+  //   $class-prefix: col-pc-;
+  //   @for $n from 1 through 24 {
+  //     &.#{$class-prefix}#{$n} {
+  //       width: ($n / 24) * 100%;
+  //     }
+  //   }
+  //   $class-prefix: offset-pc-;
+  //   @for $n from 1 through 24 {
+  //     &.#{$class-prefix}#{$n} {
+  //       margin-left: ($n / 24) * 100%;
+  //     }
+  //   }
+  // }
   @media (min-width: 1201px) {
     $class-prefix: col-wide-pc-;
     @for $n from 1 through 24 {
@@ -134,7 +134,7 @@ export default {
         width: ($n / 24) * 100%;
       }
     }
-    $class-prefix: offset-wide + -pc-;
+    $class-prefix: offset-wide-pc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
         margin-left: ($n / 24) * 100%;

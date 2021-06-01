@@ -12998,10 +12998,7 @@ var _default = {
       type: Object,
       validator: validator
     },
-    pc: {
-      type: Object,
-      validator: validator
-    },
+    // pc: { type: Object, validator },
     widePc: {
       type: Object,
       validator: validator
@@ -13021,7 +13018,7 @@ var _default = {
           narrowPc = this.narrowPc,
           pc = this.pc,
           widePc = this.widePc;
-      return [span && "col-".concat(span), offset && "offset-".concat(offset)].concat(_toConsumableArray(phone ? ["col-phone-".concat(phone.span)] : []), _toConsumableArray(ipad ? ["col-ipad-".concat(ipad.span)] : []), _toConsumableArray(narrowPc ? ["col-narrowPc-".concat(narrowPc.span)] : []), _toConsumableArray(pc ? ["col-pc-".concat(pc.span)] : []), _toConsumableArray(widePc ? ["col-widePc-".concat(widePc.span)] : []));
+      return [span && "col-".concat(span), offset && "offset-".concat(offset)].concat(_toConsumableArray(phone ? ["col-phone-".concat(phone.span)] : []), _toConsumableArray(ipad ? ["col-ipad-".concat(ipad.span)] : []), _toConsumableArray(narrowPc ? ["col-narrowPc-".concat(narrowPc.span)] : []), _toConsumableArray(widePc ? ["col-widePc-".concat(widePc.span)] : []));
     },
     colStyle: function colStyle() {
       return {
