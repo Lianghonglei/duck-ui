@@ -27,27 +27,41 @@
       background-color: grey;
       border: 1px solid red;
     }</style>
-  <style>.demo{
+  <style>.demo {
       background-color: #ccc;
       border: 1px solid #666;
       height: 50px;
     }
-    .lay-demo{
-      border: 1px solid #ccc;
-      min-height: 100px;
+
+    .sider {
+      background: #333;
+      width: 220px;
+    }
+    .sider.slide-enter, .sider.slide-leave-to{
+      /* 用户自己覆盖这个样式 */
+      margin-left:-220px; 
+    }
+
+    .header {
+      background: #999;
+      height: 100px;
+    }
+
+    .footer{
+      background: #ccc;
+      height: 50px;
     }</style>
 <link rel="stylesheet" href="/app.a6a4d504.css"></head>
 
 <body>
   <div id="app">
-    <h2>布局</h2>
     <g-layout style="height: 100vh;">
-      <g-header class="lay-demo">header</g-header>
+      <g-sider>sider</g-sider>
       <g-layout>
-        <g-sider class="lay-demo">sider</g-sider>
-        <g-content class="lay-demo">content</g-content>
+        <g-header>header</g-header>
+        <g-content>content</g-content>
+        <g-footer>footer</g-footer>
       </g-layout>
-      <g-footer class="lay-demo">footer</g-footer>
     </g-layout>
 
 

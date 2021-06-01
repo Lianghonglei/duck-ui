@@ -999,7 +999,6 @@
 }
 .layout[data-v-8e96e3] {
   flex-grow: 1;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
 }
@@ -1008,4 +1007,19 @@
 }
 .content[data-v-fb0928] {
   flex-grow: 1;
+}
+.sider[data-v-9b610e] {
+  position: relative;
+}
+.sider > button[data-v-9b610e] {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+.slide-enter-active[data-v-9b610e],
+.slide-leave-active[data-v-9b610e] {
+  transition: all 0.5s;
+}
+.slide-enter[data-v-9b610e], .slide-leave-to[data-v-9b610e] {
+  margin-left: -200px;
 }
