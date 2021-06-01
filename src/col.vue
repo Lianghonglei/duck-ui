@@ -9,7 +9,7 @@ let validator = (value) => {
   let keys = Object.keys(value)
   let valid = true
   keys.forEach(key => {
-    if (!['span', 'offset'].includes(key)) {
+    if (!['span', 'offset'].includes(key)) { 
       valid = false
     }
   })
@@ -58,6 +58,7 @@ export default {
 
 
 <style scoped lang="scss">
+// 移动端优先
 .col {
   $class-prefix: col-;
   @for $n from 1 through 24 {
@@ -71,7 +72,7 @@ export default {
       margin-left: ($n / 24) * 100%;
     }
   }
-  @media (max-width: 576px) {
+  @media (min-width: 0px) {
     $class-prefix: col-phone-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
@@ -85,7 +86,7 @@ export default {
       }
     }
   }
-  @media (min-width: 577px) and (max-width: 768px) {
+  @media (min-width: 577px) {
     $class-prefix: col-ipad-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
@@ -99,21 +100,21 @@ export default {
       }
     }
   }
-  @media (min-width: 769px) and (max-width: 992px) {
-    $class-prefix: col-narrow-pc-;
+  @media (min-width: 769px) {
+    $class-prefix: col-narrowPc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
         width: ($n / 24) * 100%;
       }
     }
-    $class-prefix: offset-narrow-pc-;
+    $class-prefix: offset-narrowPc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
         margin-left: ($n / 24) * 100%;
       }
     }
   }
-  // @media (min-width: 993px) and (max-width: 1200px) {
+  // @media (min-width: 993px){
   //   $class-prefix: col-pc-;
   //   @for $n from 1 through 24 {
   //     &.#{$class-prefix}#{$n} {
@@ -128,13 +129,13 @@ export default {
   //   }
   // }
   @media (min-width: 1201px) {
-    $class-prefix: col-wide-pc-;
+    $class-prefix: col-widePc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
         width: ($n / 24) * 100%;
       }
     }
-    $class-prefix: offset-wide-pc-;
+    $class-prefix: offset-widePc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
         margin-left: ($n / 24) * 100%;

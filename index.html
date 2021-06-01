@@ -31,18 +31,37 @@
       border: 1px solid red;
     }
   </style>
+  <style>
+    .demo{
+      background-color: #ccc;
+      border: 1px solid #666;
+      height: 50px;
+    }
+  </style>
 </head>
 
 <body>
   <div id="app">
-    <div style="border: 1px solid black">
-      <g-row gutter="20">
-        <g-col class="demoBox" span="2" :phone="{span:24}" :ipad="{span:8}" :narrow="{span:4}" :wide-pc="{span:1}">1
-        </g-col>
-        <g-col class="demoBox" span="22" :phone="{span:24}" :ipad="{span:16}" :narrow="{span:20}" :wide-pc="{span:23}">
-          11</g-col>
-      </g-row>
-    </div>
+    <g-row>
+      <g-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+        <div class="demo"></div>
+      </g-col>
+      <g-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+        <div class="demo"></div>
+      </g-col>
+      <g-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+        <div class="demo"></div>
+      </g-col>
+      <g-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+        <div class="demo"></div>
+      </g-col>
+      <g-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+        <div class="demo"></div>
+      </g-col>
+      <g-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+        <div class="demo"></div>
+      </g-col>
+    </g-row>
 
 
     <div class="box" style="margin:20px">
