@@ -997,3 +997,15 @@
     margin-left: 100%;
 }
 }
+.layout[data-v-8e96e3] {
+  flex-grow: 1;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+}
+.layout.hasSider[data-v-8e96e3] {
+  flex-direction: row;
+}
+.content[data-v-fb0928] {
+  flex-grow: 1;
+}

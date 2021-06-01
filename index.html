@@ -37,18 +37,37 @@
       border: 1px solid #666;
       height: 50px;
     }
+    .lay-demo{
+      border: 1px solid #ccc;
+      min-height: 100px;
+    }
   </style>
 </head>
 
 <body>
   <div id="app">
+    <h2>布局</h2>
+    <g-layout style="height: 100vh;">
+      <g-header class="lay-demo">header</g-header>
+      <g-layout>
+        <g-sider class="lay-demo">sider</g-sider>
+        <g-content class="lay-demo">content</g-content>
+      </g-layout>
+      <g-footer class="lay-demo">footer</g-footer>
+    </g-layout>
+
+
+
+
+
+
+    <h2>网格</h2>
     <g-row>
       <g-col span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
         <div class="demo"></div>
       </g-col>
     </g-row>
-
-
+    <h2>Input 输入框</h2>
     <div class="box" style="margin:20px">
       <g-input value="红蕾" disabled></g-input>
       <g-input value="tom" readonly></g-input>
@@ -62,7 +81,7 @@
       <p>{{message}}</p>
       <button @click="message += 1">+1</button>
     </div>
-
+    <h2>分页</h2>
     <div style="margin:20px">
       <g-button :loading="loading1" icon="settings" @click="loading1 = !loading1">设置</g-button>
       <g-button :loading="loading2" @click="loading2 = !loading2">设置</g-button>
@@ -73,9 +92,6 @@
         <g-button icon="right" icon-position="right">下一页</g-button>
       </g-button-group>
     </div>
-
-
-    <div id="test"></div>
   </div>
 
   <!-- 整个应用的入口 -->
