@@ -1023,3 +1023,19 @@
 .slide-enter[data-v-9b610e], .slide-leave-to[data-v-9b610e] {
   margin-left: -200px;
 }
+.toast[data-v-6e7c93] {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.8;
+  height: 40px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  padding: 0 16px;
+  border-radius: 4px;
+}
