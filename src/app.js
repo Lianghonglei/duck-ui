@@ -44,7 +44,14 @@ new Vue({
       console.log(e.target.value);
     },
     showToast(message) {
-      this.$toast(message)
+      this.$toast(message, {
+        closeButton:{
+          text:'关闭',
+          callback(toast){
+            console.log('用户点击了关闭')
+          }
+        }
+      })
     }
   },
   created() {

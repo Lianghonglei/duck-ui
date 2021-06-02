@@ -1039,3 +1039,11 @@
   padding: 0 16px;
   border-radius: 4px;
 }
+.close[data-v-6e7c93] {
+  padding-left: 16px;
+}
+.line[data-v-6e7c93] {
+  height: 100%;
+  border: 1px solid #666;
+  margin-left: 16px;
+}
