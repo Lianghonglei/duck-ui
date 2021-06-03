@@ -1,7 +1,8 @@
 <template>
-  <div class="toast">
-    <slot></slot>
-    <div class="line"></div>
+  <div class="toast" ref="wrapper">
+    <slot v-if="!enableHtml"></slot>
+    <div v-else v-html="$slots.default[0]"></div>
+    <div class="line" ref="line"></div>
     <span v-if="closeButton" class="close" @click="onClickClose()">
       {{closeButton.text}}
     </span>
@@ -30,6 +31,10 @@ export default {
           }
         }
       }
+    },
+    enableHtml: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -38,7 +43,7 @@ export default {
       this.$el.remove() //从body里面移除
       this.$destroy() //将自身绑定的事件全部取消,且destory并不会吧元素从页面中删除
     },
-    log(){
+    log() {
       console.log('测试')
     },
     onClickClose() {
@@ -46,27 +51,36 @@ export default {
       if (this.closeButton && typeof this.closeButton.callback === 'function') {
         this.closeButton.callback(this)
       }
-    }
+    },
+    updateStyles() {
+      this.$nextTick(() => {
+        this.$refs.line.style.height = `${this.$refs.wrapper.getBoundingClientRect().height}px`
+      })
+    },
+    execAutoClose() {
+      if (this.autoClose) {
+        setTimeout(() => {
+          this.close()
+        }, this.autoCloseDelay * 1000)
+      }
+    },
   },
   mounted() {
-    if (this.autoClose) {
-      setTimeout(() => {
-        this.close()
-      }, this.autoCloseDelay * 1000)
-    }
+    this.updateStyles()
+    this.execAutoClose()
   }
 }
 </script>
 
 <style scoped lang="scss">
 $font-size: 14px;
-$toast-height: 40px;
+$toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.75);
 .toast {
   color: #fff;
   font-size: $font-size;
   line-height: 1.8;
-  height: $toast-height;
+  min-height: $toast-min-height;
   position: fixed;
   top: 0;
   left: 50%;
@@ -75,12 +89,14 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   align-items: center;
   background: $toast-bg;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-  padding: 0 16px;
+  padding: 8px 16px;
   border-radius: 4px;
+  .close {
+    padding-left: 16px;
+    flex-shrink: 0; //不缩小
+  }
 }
-.close {
-  padding-left: 16px;
-}
+
 .line {
   height: 100%;
   border: 1px solid #666;

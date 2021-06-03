@@ -35,7 +35,7 @@ new Vue({
       loading1: true,
       loading2: true,
       loading3: true,
-      message: 'hi'
+      message: 'hi',
     }
   },
   methods: {
@@ -43,15 +43,9 @@ new Vue({
       console.log('object e:')
       console.log(e.target.value);
     },
-    showToast(message) {
-      this.$toast(message, {
-        closeButton:{
-          text:'关闭',
-          callback(toast){
-            console.log('用户点击了关闭')
-          }
-        }
-      })
+    
+    showToast() {
+      this.$toast('<p>这是一个加粗的<strong><a href="http://qq.com" style="color:pink">QQ</a></strong></p>', { enableHtml: true })
     }
   },
   created() {

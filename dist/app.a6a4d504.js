@@ -13462,6 +13462,7 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   name: 'GToast',
   props: {
@@ -13483,6 +13484,10 @@ var _default = {
           }
         };
       }
+    },
+    enableHtml: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -13501,16 +13506,27 @@ var _default = {
       if (this.closeButton && typeof this.closeButton.callback === 'function') {
         this.closeButton.callback(this);
       }
+    },
+    updateStyles: function updateStyles() {
+      var _this = this;
+
+      this.$nextTick(function () {
+        _this.$refs.line.style.height = "".concat(_this.$refs.wrapper.getBoundingClientRect().height, "px");
+      });
+    },
+    execAutoClose: function execAutoClose() {
+      var _this2 = this;
+
+      if (this.autoClose) {
+        setTimeout(function () {
+          _this2.close();
+        }, this.autoCloseDelay * 1000);
+      }
     }
   },
   mounted: function mounted() {
-    var _this = this;
-
-    if (this.autoClose) {
-      setTimeout(function () {
-        _this.close();
-      }, this.autoCloseDelay * 1000);
-    }
+    this.updateStyles();
+    this.execAutoClose();
   }
 };
 exports.default = _default;
@@ -13528,11 +13544,13 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "toast" },
+    { ref: "wrapper", staticClass: "toast" },
     [
-      _vm._t("default"),
+      !_vm.enableHtml
+        ? _vm._t("default")
+        : _c("div", { domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) } }),
       _vm._v(" "),
-      _c("div", { staticClass: "line" }),
+      _c("div", { ref: "line", staticClass: "line" }),
       _vm._v(" "),
       _vm.closeButton
         ? _c(
@@ -13602,9 +13620,7 @@ var _default = {
     Vue.prototype.$toast = function (message, toastOptions) {
       var Constructor = Vue.extend(_toast.default);
       var toast = new Constructor({
-        propsData: {
-          closeButton: toastOptions.closeButton
-        }
+        propsData: toastOptions
       });
       toast.$slots.default = [message];
       toast.$mount();
@@ -13687,14 +13703,9 @@ new _vue.default({
       console.log('object e:');
       console.log(e.target.value);
     },
-    showToast: function showToast(message) {
-      this.$toast(message, {
-        closeButton: {
-          text: '关闭',
-          callback: function callback(toast) {
-            console.log('用户点击了关闭');
-          }
-        }
+    showToast: function showToast() {
+      this.$toast('<p>这是一个加粗的<strong><a href="http://qq.com" style="color:pink">QQ</a></strong></p>', {
+        enableHtml: true
       });
     }
   },
