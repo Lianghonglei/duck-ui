@@ -45,7 +45,11 @@ new Vue({
     },
     
     showToast() {
-      this.$toast('<p>这是一个加粗的<strong><a href="http://qq.com" style="color:pink">QQ</a></strong></p>', { enableHtml: true })
+      this.$toast('<p>这是一个加粗的<strong><a href="http://qq.com" style="color:pink">QQ</a></strong></p>', { 
+        enableHtml: true,
+        position:'middle',
+
+      })
     }
   },
   created() {

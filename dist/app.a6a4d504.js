@@ -12850,7 +12850,7 @@ var _default = {
     align: {
       type: String,
       validator: function validator(value) {
-        return ['left', 'right', 'center'].includes(value);
+        return ['left', 'right', 'center'].indexOf(value) >= 0;
       }
     },
     phone: {
@@ -12970,7 +12970,7 @@ var validator = function validator(value) {
   var keys = Object.keys(value);
   var valid = true;
   keys.forEach(function (key) {
-    if (!['span', 'offset'].includes(key)) {
+    if (['span', 'offset'].indexOf(key) < 0) {
       valid = false;
     }
   });
@@ -13452,6 +13452,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
 //
 //
 //
@@ -13488,6 +13493,13 @@ var _default = {
     enableHtml: {
       type: Boolean,
       default: false
+    },
+    position: {
+      type: String,
+      default: 'top',
+      validator: function validator(value) {
+        return ['top', 'bottom', 'middle'].indexOf(value) >= 0;
+      }
     }
   },
   methods: {
@@ -13524,6 +13536,11 @@ var _default = {
       }
     }
   },
+  computed: {
+    toastClasses: function toastClasses() {
+      return _defineProperty({}, "position-".concat(this.position), true);
+    }
+  },
   mounted: function mounted() {
     this.updateStyles();
     this.execAutoClose();
@@ -13544,11 +13561,20 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { ref: "wrapper", staticClass: "toast" },
+    { ref: "wrapper", staticClass: "toast", class: _vm.toastClasses },
     [
-      !_vm.enableHtml
-        ? _vm._t("default")
-        : _c("div", { domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) } }),
+      _c(
+        "div",
+        { staticClass: "message" },
+        [
+          !_vm.enableHtml
+            ? _vm._t("default")
+            : _c("div", {
+                domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) }
+              })
+        ],
+        2
+      ),
       _vm._v(" "),
       _c("div", { ref: "line", staticClass: "line" }),
       _vm._v(" "),
@@ -13566,8 +13592,7 @@ exports.default = _default;
             [_vm._v("\n    " + _vm._s(_vm.closeButton.text) + "\n  ")]
           )
         : _vm._e()
-    ],
-    2
+    ]
   )
 }
 var staticRenderFns = []
@@ -13705,7 +13730,8 @@ new _vue.default({
     },
     showToast: function showToast() {
       this.$toast('<p>这是一个加粗的<strong><a href="http://qq.com" style="color:pink">QQ</a></strong></p>', {
-        enableHtml: true
+        enableHtml: true,
+        position: 'middle'
       });
     }
   },
