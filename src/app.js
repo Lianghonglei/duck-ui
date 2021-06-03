@@ -43,12 +43,19 @@ new Vue({
       console.log('object e:')
       console.log(e.target.value);
     },
-    
-    showToast() {
-      this.$toast('<p>这是一个加粗的<strong><a href="http://qq.com" style="color:pink">QQ</a></strong></p>', { 
+    showToast0() {
+      this.showToast('top')
+    },
+    showToast1() {
+      this.showToast('middle')
+    },
+    showToast2() {
+      this.showToast('bottom')
+    },
+    showToast(position) {
+      this.$toast('<p>这是一个加粗的<strong><a href="http://qq.com" style="color:pink">QQ</a></strong></p>', {
         enableHtml: true,
-        position:'middle',
-
+        position: position,
       })
     }
   },

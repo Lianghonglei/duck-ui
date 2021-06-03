@@ -13468,6 +13468,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 var _default = {
   name: 'GToast',
   props: {
@@ -13524,7 +13527,7 @@ var _default = {
       var _this = this;
 
       this.$nextTick(function () {
-        _this.$refs.line.style.height = "".concat(_this.$refs.wrapper.getBoundingClientRect().height, "px");
+        _this.$refs.line.style.height = "".concat(_this.$refs.toast.getBoundingClientRect().height, "px");
       });
     },
     execAutoClose: function execAutoClose() {
@@ -13560,10 +13563,8 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { ref: "wrapper", staticClass: "toast", class: _vm.toastClasses },
-    [
+  return _c("div", { staticClass: "wrapper", class: _vm.toastClasses }, [
+    _c("div", { ref: "toast", staticClass: "toast" }, [
       _c(
         "div",
         { staticClass: "message" },
@@ -13590,11 +13591,11 @@ exports.default = _default;
                 }
               }
             },
-            [_vm._v("\n    " + _vm._s(_vm.closeButton.text) + "\n  ")]
+            [_vm._v("\n      " + _vm._s(_vm.closeButton.text) + "\n    ")]
           )
         : _vm._e()
-    ]
-  )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13751,10 +13752,19 @@ new _vue.default({
       console.log('object e:');
       console.log(e.target.value);
     },
-    showToast: function showToast() {
+    showToast0: function showToast0() {
+      this.showToast('top');
+    },
+    showToast1: function showToast1() {
+      this.showToast('middle');
+    },
+    showToast2: function showToast2() {
+      this.showToast('bottom');
+    },
+    showToast: function showToast(position) {
       this.$toast('<p>这是一个加粗的<strong><a href="http://qq.com" style="color:pink">QQ</a></strong></p>', {
         enableHtml: true,
-        position: 'middle'
+        position: position
       });
     }
   },
