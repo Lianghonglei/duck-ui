@@ -1023,7 +1023,16 @@
 .slide-enter[data-v-9b610e], .slide-leave-to[data-v-9b610e] {
   margin-left: -200px;
 }
+@keyframes fade-in-data-v-6e7c93 {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
 .toast[data-v-6e7c93] {
+  animation: fade-in-data-v-6e7c93 0.2s;
   color: #fff;
   font-size: 14px;
   line-height: 1.8;

@@ -13507,6 +13507,7 @@ var _default = {
       //虽然也可以使用css把自己弄没，但是最好彻底弄没
       this.$el.remove(); //从body里面移除
 
+      this.$emit('close');
       this.$destroy(); //将自身绑定的事件全部取消,且destory并不会吧元素从页面中删除
     },
     log: function log() {
@@ -13643,13 +13644,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function createToast(_ref) {
   var Vue = _ref.Vue,
       message = _ref.message,
-      propsData = _ref.propsData;
+      propsData = _ref.propsData,
+      onClose = _ref.onClose;
   var Constructor = Vue.extend(_toast.default);
   var toast = new Constructor({
     propsData: propsData
   });
   toast.$slots.default = [message];
   toast.$mount();
+  toast.$on('close', onClose);
   document.body.appendChild(toast.$el);
   return toast;
 }
@@ -13665,7 +13668,10 @@ var _default = {
       currentToast = createToast({
         Vue: Vue,
         message: message,
-        propsData: toastOptions
+        propsData: toastOptions,
+        onClose: function onClose() {
+          currentToast = null;
+        }
       });
     };
   }

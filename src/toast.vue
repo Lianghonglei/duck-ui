@@ -50,6 +50,7 @@ export default {
     close() {
       //虽然也可以使用css把自己弄没，但是最好彻底弄没
       this.$el.remove() //从body里面移除
+      this.$emit('close')
       this.$destroy() //将自身绑定的事件全部取消,且destory并不会吧元素从页面中删除
     },
     log() {
@@ -92,7 +93,16 @@ export default {
 $font-size: 14px;
 $toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.75);
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .toast {
+  animation: fade-in .2s;
   color: #fff;
   font-size: $font-size;
   line-height: 1.8;
@@ -117,7 +127,7 @@ $toast-bg: rgba(0, 0, 0, 0.75);
     transform: translateX(-50%);
   }
   &.position-middle {
-    top:50%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
