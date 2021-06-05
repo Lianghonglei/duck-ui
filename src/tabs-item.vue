@@ -32,7 +32,7 @@ export default {
   inject: ['eventBus'],
   methods: {
     xxx(){
-      this.eventBus.$emit('update:selected', this.name)
+      this.eventBus.$emit('update:selected', this.name, this)
     }
   },
   mounted() {
@@ -51,16 +51,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$blue:blue;
+
 .tabs-item {
   flex-shrink: 0;
   padding: 0 1em;
   cursor: pointer;
-  border: 1px solid red;
   height:100%;
   display: flex;
   align-items:center;
   &.active{
-    background: chartreuse;
+    color:$blue;
+    font-weight: bold;
   }
 }
 </style>
