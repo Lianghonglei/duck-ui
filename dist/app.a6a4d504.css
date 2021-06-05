@@ -1103,3 +1103,23 @@
   border: 1px solid #666;
   margin-left: 16px;
 }
+.tabs-head[data-v-303092] {
+  display: flex;
+  height: 40px;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid red;
+}
+.tabs-head > .actions-wrapper[data-v-303092] {
+  margin-left: auto;
+}
+.tabs-item[data-v-5b2a4f] {
+  flex-shrink: 0;
+  padding: 0 2em;
+}
+.tabs-item.active[data-v-5b2a4f] {
+  background: chartreuse;
+}
+.tabs-pane.active[data-v-03dbc0] {
+  background: chartreuse;
+}

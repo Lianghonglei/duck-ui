@@ -5,9 +5,10 @@
 </template>
 
 <script>
+import Vue from 'vue'
 export default {
-  name:'GTabs',
-  props:{
+  name: 'GTabs',
+  props: {
     selected: {
       type: String,
       required: true
@@ -15,18 +16,29 @@ export default {
     direction: {
       type: String,
       default: 'horizontal',
-      validator (value) {
+      validator(value) {
         return ['horizontal', 'vertical'].indexOf(value) >= 0
       }
     }
+  },
+  provide() {
+    return {
+      eventBus: this.eventBus
+    }
+  },
+  data() {
+    return {
+      eventBus: new Vue()
+    }
+  },
+  mounted(){
+    this.eventBus.$emit('update:selected', this.selected)
   }
-  
+
 }
 </script>
 
 <style scoped lang="scss">
-.tabs{
-
+.tabs {
 }
-
 </style>
